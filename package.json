@@ -15,8 +15,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "npx webpack -p",
-    "watch": "npx webpack -p --watch",
-    "serve-fragment": "nodemon --watch './fragment.ts' --exec 'ts-node' ./fragment.ts"
+    "watch-fragment": "concurrently \"npm run build -- --watch\" \"npm run serve-fragment\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,6 +33,7 @@
     ]
   },
   "devDependencies": {
+    "concurrently": "^4.1.0",
     "nodemon": "^1.19.0",
     "react-svg-loader": "^3.0.1",
     "ts-loader": "^6.0.1",
