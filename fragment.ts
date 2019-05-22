@@ -9,8 +9,11 @@ const server = http.createServer((req: any, res: any) => {
     res.writeHead(200, jsHeader);
     return fs.createReadStream("./build/bundle.js").pipe(res);
   } else {
-    res.statusCode = 404;
-    return res.end("Not Found");
+    res.writeHead(200, {
+      "Content-Type": "text/html",
+      Link: '<http://localhost:5000/public/bundle.js>; rel="fragment-script"'
+    });
+    return res.end("");
   }
 });
 
