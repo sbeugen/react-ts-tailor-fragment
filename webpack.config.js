@@ -1,13 +1,21 @@
-var webpack = require("webpack"),
-  path = require("path");
+const path = require("path");
 
 module.exports = {
   mode: "development",
   entry: "./src/index.tsx",
+  devtool: "source-map",
   output: {
     path: path.resolve(__dirname, "build"),
     filename: "bundle.js",
-    libraryTarget: "amd"
+    libraryTarget: "umd"
+  },
+  devServer: {
+    contentBase: path.resolve(__dirname, "public"),
+    publicPath: "/",
+    compress: true,
+    port: 3000,
+    hot: true,
+    open: true
   },
   module: {
     rules: [
@@ -25,12 +33,6 @@ module.exports = {
         test: [/\.ts$/, /\.tsx$/],
         exclude: /(node_modules|bower_components)/,
         use: "ts-loader"
-      },
-      {
-        test: [/\.svg$/],
-        use: {
-          loader: "react-svg-loader"
-        }
       },
       {
         test: /\.css$/,
