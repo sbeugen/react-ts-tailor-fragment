@@ -5,5 +5,5 @@
 ```yarn build```
 
 ## Run server to serve Fragment in watch mode 
-#### (hot reload if either the React files or fragment.ts change)
-```yarn watch-fragment```
+#### (incl. hot reload if either the React files or fragment.ts change)
+```yarn serve-fragment```

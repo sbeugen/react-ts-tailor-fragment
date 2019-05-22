@@ -15,7 +15,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "npx webpack -p",
-    "watch-fragment": "concurrently \"npm run build -- --watch\" \"npm run serve-fragment\""
+    "serve-fragment": "concurrently \"npm run build -- --watch\" \"npm run serve-fragment\""
   },
   "eslintConfig": {
     "extends": "react-app"
