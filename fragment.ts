@@ -1,6 +1,6 @@
-const http = require("http");
-const url = require("url");
-const fs = require("fs");
+import http from "http";
+import url from "url";
+import fs from "fs";
 
 const server = http.createServer((req: any, res: any) => {
   const pathname = url.parse(req.url).pathname;
