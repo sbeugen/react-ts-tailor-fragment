@@ -14,6 +14,8 @@ const server = http.createServer((req: any, res: any) => {
   }
 });
 
-server.listen(5000, () => {
-  console.log("SPA Fragment Server started at 5000");
+const port = process.env.PORT || 5000;
+
+server.listen(port, () => {
+  console.log("SPA Fragment Server started at port " + port);
 });
