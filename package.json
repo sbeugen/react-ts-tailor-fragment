@@ -15,7 +15,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "npx webpack -p",
-    "fragment": "ts-node fragment.ts"
+    "serve-fragment": "npm run build && ts-node fragment.ts"
   },
   "eslintConfig": {
     "extends": "react-app"

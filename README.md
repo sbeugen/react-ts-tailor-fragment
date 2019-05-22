@@ -5,4 +5,4 @@
 ```yarn build```
 
 ## Run Server to serve Fragment
-```yarn fragment```
+```yarn serve-fragment```
