@@ -1,14 +1,16 @@
-## Run Frontend in dev mode
+## Run frontend in dev mode
 ```yarn dev```
 
 *The id of the div inside the body of /public/index.html has to be the same as ELEMENT_ID in index.tsx*
 
-## Build Frontend
+## Build frontend
 ```yarn build```
 
-## Run server to serve Fragment in watch mode 
-#### (incl. hot reload if either the React files or fragment.ts change)
-```yarn serve-fragment```
+## Run server to serve fragment
+After you have built the frontend run ```yarn serve-fragment```
+
+#### incl. hot reload if either the React files or fragment.ts change
+```yarn watch-fragment``` (No need to build the frontend before running this command)
 
 ## Now tailor can find the fragment at localhost:5000
 

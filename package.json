@@ -26,7 +26,8 @@
   "scripts": {
     "dev": "webpack-dev-server",
     "build": "npx webpack -p",
-    "serve-fragment": "concurrently \"npm run build -- --watch\" \"nodemon --watch './fragment.ts' --exec 'ts-node' ./fragment.ts\""
+    "serve-fragment": "nodemon --watch './fragment.ts' --exec 'ts-node' ./fragment.ts",
+    "watch-fragment": "concurrently \"npm run build -- --watch\" \"npm run serve-fragment\""
   },
   "eslintConfig": {
     "extends": "react-app"
