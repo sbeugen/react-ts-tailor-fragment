@@ -19,4 +19,4 @@ To set a port other than the default one (5000) simply add ```PORT=YOUR_PORT_NUM
 
 e.g. ```PORT=3000 yarn serve-fragment```
 
-## You have to change the ELEMENT_ID constant in index.tsx accordingly to the id of the div in your tailor host template
+## You have to change the ELEMENT_ID constant in index.tsx accordingly to the id of the div which fragment.ts serves

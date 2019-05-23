@@ -13,7 +13,7 @@ const server = http.createServer((req: any, res: any) => {
       "Content-Type": "text/html",
       Link: '<http://localhost:5000/public/bundle.js>; rel="fragment-script"'
     });
-    return res.end("");
+    return res.end('<div id="root"></div>');
   }
 });
 
