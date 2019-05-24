@@ -5,15 +5,23 @@ import fs from "fs";
 const server = http.createServer((req: any, res: any) => {
   const pathname = url.parse(req.url).pathname;
   const jsHeader = { "Content-Type": "application/javascript" };
-  if (pathname === "/public/bundle.js") {
-    res.writeHead(200, jsHeader);
-    return fs.createReadStream("./build/bundle.js").pipe(res);
-  } else {
-    res.writeHead(200, {
-      "Content-Type": "text/html",
-      Link: '<http://localhost:5000/public/bundle.js>; rel="fragment-script"'
-    });
-    return res.end('<div id="root"></div>');
+
+  switch (pathname) {
+    case "/public/bundle.js":
+      res.writeHead(200, jsHeader);
+      return fs.createReadStream("./build/bundle.js").pipe(res);
+
+    case "/public/bundle.js.map":
+      res.writeHead(200, jsHeader);
+      return fs.createReadStream("./build/bundle.js.map").pipe(res);
+
+    case "/":
+    default:
+      res.writeHead(200, {
+        "Content-Type": "text/html",
+        Link: '<http://localhost:5000/public/bundle.js>; rel="fragment-script"'
+      });
+      return res.end('<div id="root"></div>');
   }
 });
 
