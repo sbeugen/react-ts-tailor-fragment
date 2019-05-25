@@ -32,7 +32,7 @@ module.exports = {
       {
         test: [/\.ts$/, /\.tsx$/],
         exclude: /(node_modules|bower_components)/,
-        use: "ts-loader"
+        loader: "awesome-typescript-loader"
       },
       {
         test: /\.css$/,

@@ -12,12 +12,12 @@
     "typescript": "3.4.5"
   },
   "devDependencies": {
+    "awesome-typescript-loader": "^5.2.1",
     "concurrently": "^4.1.0",
     "css-loader": "^2.1.1",
     "nodemon": "^1.19.0",
     "react-svg-loader": "^3.0.1",
     "style-loader": "^0.23.1",
-    "ts-loader": "^6.0.1",
     "ts-node": "^8.1.0",
     "webpack": "^4.32.1",
     "webpack-cli": "^3.3.2",
