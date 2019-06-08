@@ -1,32 +1,29 @@
-import http from "http";
-import url from "url";
 import fs from "fs";
+import express from "express";
 
-const server = http.createServer((req: any, res: any) => {
-  const pathname = url.parse(req.url).pathname;
-  const jsHeader = { "Content-Type": "application/javascript" };
+const JS_HEADER = { "Content-Type": "application/javascript" };
+const port = Number(process.env.PORT) || 5000;
 
-  switch (pathname) {
-    case "/public/bundle.js":
-      res.writeHead(200, jsHeader);
-      return fs.createReadStream("./build/bundle.js").pipe(res);
+const app = express();
 
-    case "/public/bundle.js.map":
-      res.writeHead(200, jsHeader);
-      return fs.createReadStream("./build/bundle.js.map").pipe(res);
-
-    case "/":
-    default:
-      res.writeHead(200, {
-        "Content-Type": "text/html",
-        Link: '<http://localhost:5000/public/bundle.js>; rel="fragment-script"'
-      });
-      return res.end('<div id="root"></div>');
-  }
+app.get("/", (req, res) => {
+  res.writeHead(200, {
+    "Content-Type": "text/html",
+    Link: '<http://localhost:5000/public/bundle.js>; rel="fragment-script"'
+  });
+  return res.end('<div id="root"></div>');
 });
 
-const port = process.env.PORT || 5000;
+app.get("/public/bundle.js", (req, res) => {
+  res.writeHead(200, JS_HEADER);
+  return fs.createReadStream("./build/bundle.js").pipe(res);
+});
 
-server.listen(port, () => {
-  console.log("SPA Fragment Server started at port " + port);
+app.get("/public/bundle.js.map", (req, res) => {
+  res.writeHead(200, JS_HEADER);
+  return fs.createReadStream("./build/bundle.js.map").pipe(res);
+});
+
+app.listen(port, () => {
+  console.log("express server running on port:", port);
 });
