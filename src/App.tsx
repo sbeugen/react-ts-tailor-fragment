@@ -1,13 +1,18 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 
-const App: React.FC = () => {
+type AppProps = {
+  queryParams: {
+    name?: string;
+  };
+};
+
+const App: React.FC<AppProps> = ({ queryParams }) => {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          REACT TS TAILOR FRAGMENT
-        </p>
+        {queryParams.name && <p>HI {queryParams.name.toUpperCase()}!</p>}
+        <p>REACT TS TAILOR FRAGMENT</p>
       </header>
     </div>
   );
